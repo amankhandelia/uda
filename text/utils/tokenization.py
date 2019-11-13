@@ -120,7 +120,7 @@ class BasicTokenizer(object):
 
   def tokenize(self, text):
     """Tokenizes a piece of text."""
-    text = _convert_to_unicode_or_throw(text)
+    # text = _convert_to_unicode_or_throw(text)
     text = self._clean_text(text)
     orig_tokens = whitespace_tokenize(text)
     split_tokens = []
@@ -200,7 +200,7 @@ class WordpieceTokenizer(object):
       A list of wordpiece tokens.
     """
 
-    text = _convert_to_unicode_or_throw(text)
+    # text = _convert_to_unicode_or_throw(text)
 
     output_tokens = []
     for token in whitespace_tokenize(text):

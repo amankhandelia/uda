@@ -312,8 +312,8 @@ def get_activation(activation_string):
 
   # We assume that anything that's not a string is already an activation
   # function, so we just return it.
-  if not isinstance(activation_string, (str, unicode)):
-    return activation_string
+  if not isinstance(activation_string, six.string_types):
+      return activation_string
 
   if not activation_string:
     return None
@@ -951,12 +951,10 @@ def reshape_from_matrix(output_tensor, orig_shape_list):
 
 def assert_rank(tensor, expected_rank, name=None):
   """Raises an exception if the tensor rank is not of the expected rank.
-
   Args:
     tensor: A tf.Tensor to check the rank of.
     expected_rank: Python integer or list of integers, expected rank.
     name: Optional name of the tensor for the error message.
-
   Raises:
     ValueError: If the expected shape doesn't match the actual shape.
   """
@@ -964,7 +962,7 @@ def assert_rank(tensor, expected_rank, name=None):
     name = tensor.name
 
   expected_rank_dict = {}
-  if isinstance(expected_rank, (int, long)):
+  if isinstance(expected_rank, six.integer_types):
     expected_rank_dict[expected_rank] = True
   else:
     for x in expected_rank:

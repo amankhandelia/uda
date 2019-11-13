@@ -119,9 +119,9 @@ def back_translation(examples, aug_ops, sub_set, aug_copy_num,
     aug_examples += [example]
     if np.random.random() < 0.0001:
       tf.logging.info("\tori:\n\t\t{:s}\n\t\t{:s}\n\t\t{:s}\n".format(
-          ori_example.text_a, ori_example.text_b, ori_example.label))
+          str(ori_example.text_a), str(ori_example.text_b), str(ori_example.label)))
       tf.logging.info("\tnew:\n\t\t{:s}\n\t\t{:s}\n\t\t{:s}\n".format(
-          example.text_a, example.text_b, example.label))
+          str(example.text_a), str(example.text_b), str(example.label)))
     if i % 10000 == 0:
       print("processing example # {:d}".format(i))
   tf.logging.info("applied back translation for {:.1f} percent of data".format(

@@ -1,3 +1,6 @@
 *.pyc
 *ckpt*
 *__pycache__*
+.idea/
+text/data/*
+text/pretrained_models/*

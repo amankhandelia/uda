@@ -264,13 +264,7 @@ def convert_examples_to_features(
       tf.logging.info("*** Example ***")
       tf.logging.info("guid: %s" % (example.guid))
       # st = " ".join([str(x) for x in tokens])
-      st = ""
-      for x in tokens:
-        if isinstance(x, unicode):
-          st += x.encode("ascii", "replace") + " "
-        else:
-          st += str(x) + " "
-      tf.logging.info("tokens: %s" % st)
+      tf.logging.info("tokens: %s" % " ".join([str(x) for x in tokens]))
       tf.logging.info("input_ids: %s" % " ".join([str(x) for x in input_ids]))
       tf.logging.info("input_mask: %s" % " ".join([str(x) for x in input_mask]))
       tf.logging.info(
